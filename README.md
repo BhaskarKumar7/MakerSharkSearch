@@ -9,6 +9,7 @@ This project is a a search page where buyers can search for manufacturers based 
 - [Running the Tests](#running-the-tests)
 - [Built With](#built-with)
 - [Project Setup](#project-setup)
+- [Curl endpoint](#curl-endpoint)
 
 
 ### Prerequisites
@@ -56,5 +57,9 @@ This project has got single Api
 - jakarta validation api
 - spring tool suite IDE
 
-
+## Curl endpoint
+curl -X 'POST' \
+  'http://localhost:9988/api/supplier?location=Pune&page=0&size=10' \
+  -H 'accept: */*' \
+  -d ''
 

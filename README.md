@@ -1,4 +1,4 @@
-# Government funded training centers
+# MakerShark Suppliers
 
 ## Description
 This project is a a search page where buyers can search for manufacturers based on their customised requirements

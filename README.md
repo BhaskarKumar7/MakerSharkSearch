@@ -1,7 +1,7 @@
-# Government funded training centers
+# MakerShark Suppliers
 
 ## Description
-This project is a minimum viable product for a registry of government funded training centers
+This project is a a search page where buyers can search for manufacturers based on their customised requirements
 
 ## Table of Contents
 - [Usage](#usage)
@@ -9,6 +9,7 @@ This project is a minimum viable product for a registry of government funded tra
 - [Running the Tests](#running-the-tests)
 - [Built With](#built-with)
 - [Project Setup](#project-setup)
+- [Curl endpoint](#curl-endpoint)
 
 
 ### Prerequisites
@@ -21,7 +22,7 @@ This project is a minimum viable product for a registry of government funded tra
 step-by-step instructions to set up the project locally.
 
 ##### Clone the repository
-git clone https://github.com/BhaskarKumar7/Traini8.git
+git clone https://github.com/BhaskarKumar7/MakerSharkSearch.git
 
 ##### Navigate to the project directory
 cd {project-location}
@@ -33,21 +34,21 @@ mvn clean install
 mvn spring-boot:run
 
 ## Usage
-This project has got two Api's
-- [POST] http://localhost:9181/api/trainingCenter
-	- This end point validates and saves the training center information in the database
-- [GET] http://localhost:9181/api/trainingCentersList
-	- This end points fetches the training centers list from the database based on optional request parameters
-- [SWAGGER END POINT] http://localhost:9181/swagger-ui/index.html
+This project has got single Api
+- [POST] http://localhost:9988/api/supplier
+	- This end point takes query parameters values as filters to fetch  list of manufacters based on the search criteria accordingly.
+
+- [SWAGGER END POINT] http://localhost:9988/swagger-ui/index.html
 
 ## Configuration
 ##### Changes need to be done in application.properties file
 - spring.datasource.username={your db username}
 - spring.datasource.password={your db password}
-- spring.datasource.url=jdbc:postgresql://localhost:{your db port no}/Traini8
+- spring.datasource.url=jdbc:postgresql://localhost:{your db port no}/{data base name}
 
 ## Running the Tests
-Test cases need to be implemented
+- Written test cases for controller and service using junit5 and Mockito
+- mvn test
 
 ## Built With
 - spring boot version (3.2.5)
@@ -56,5 +57,9 @@ Test cases need to be implemented
 - jakarta validation api
 - spring tool suite IDE
 
-
+## Curl endpoint
+curl -X 'POST' \
+  'http://localhost:9988/api/supplier?location=Pune&page=0&size=10' \
+  -H 'accept: */*' \
+  -d ''
 

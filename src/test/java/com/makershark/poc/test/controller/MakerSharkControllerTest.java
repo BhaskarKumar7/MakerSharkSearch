@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
 import com.makershark.poc.controller.MakerSharkController;
+import com.makershark.poc.dtos.ServerResponseDto;
 import com.makershark.poc.dtos.SupplierDto;
 import com.makershark.poc.service.SupplierService;
 
@@ -24,6 +25,14 @@ public class MakerSharkControllerTest {
 	SupplierService supplierService;
 	@InjectMocks
 	MakerSharkController makerSharkController;
+	
+	@Test
+	void testcreateSupplier()	{
+		ServerResponseDto dto = new ServerResponseDto("success", "200");
+		Mockito.when(supplierService.saveSupplier(Mockito.any())).thenReturn(dto);
+		ResponseEntity<ServerResponseDto> response = makerSharkController.createSupplier(new SupplierDto());
+		assertNotNull(response);
+	}
 	
 	@Test
 	void testGetAllSuppliersWithEmptyData() {
